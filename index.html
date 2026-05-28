@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APFTS | Transparency Intelligence</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #e0f2fe 0%, #bae6fd 100%);
+            color: #0c4a6e;
+            line-height: 1.4;
+        }
+        :root {
+            --ice-1: #e0f2fe;
+            --ice-2: #bae6fd;
+            --aqua-deep: #0284c7;
+            --aqua-mid: #38bdf8;
+            --aqua-light: #7dd3fc;
+            --glass-white: rgba(255,255,255,0.85);
+            --glass-border: rgba(255,255,255,0.5);
+            --shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .app-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' opacity='0.08'%3E%3Cpath fill='%230284c7' d='M10,50 L20,30 L30,50 L20,70 Z M50,20 L60,10 L70,20 L60,30 Z M80,70 L90,60 L95,75 L85,85 Z'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        .navbar {
+            background: rgba(2, 84, 99, 0.9);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.8rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-icon svg { width: 38px; height: 38px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+        .logo-text { font-weight: 700; font-size: 1.3rem; letter-spacing: -0.3px; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.6rem; list-style: none; }
+        .nav-links a {
+            color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            padding: 0.4rem 0.8rem; border-radius: 30px; transition: 0.2s;
+            background: rgba(255,255,255,0.1);
+        }
+        .nav-links a:hover { background: rgba(255,255,255,0.3); }
+        .user-info { display: flex; align-items: center; gap: 1rem; font-size: 0.8rem; background: rgba(0,0,0,0.2); padding: 0.3rem 1rem; border-radius: 40px; }
+        .logout-btn { background: none; border: 1px solid white; color: white; padding: 0.2rem 0.8rem; border-radius: 20px; cursor: pointer; }
+        .dashboard-container { display: grid; grid-template-columns: 280px 1fr; gap: 0; flex: 1; }
+        .left-sidebar {
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(8px);
+            border-right: 1px solid rgba(255,255,255,0.6); padding: 1.5rem 1rem;
+            display: flex; flex-direction: column; gap: 1.5rem;
+        }
+        .stats-mini-card, .alert-feed {
+            background: rgba(255,255,255,0.9); border-radius: 24px; padding: 1rem;
+            box-shadow: var(--shadow); border: 1px solid var(--glass-border);
+        }
+        .stat-number { font-size: 1.8rem; font-weight: 800; color: #0369a1; }
+        .progress-bar-bg { background: #cbd5e1; border-radius: 20px; height: 8px; margin: 8px 0; }
+        .progress-fill { background: #0e7cae; width: 0%; height: 8px; border-radius: 20px; }
+        .main-content { padding: 1.5rem; background: transparent; display: flex; flex-direction: column; gap: 1.8rem; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+        .info-card {
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(4px);
+            border-radius: 24px; padding: 1.2rem; border: 1px solid white;
+            box-shadow: var(--shadow);
+        }
+        .info-card h3 { font-size: 1rem; margin-bottom: 0.75rem; border-left: 4px solid #0e7cae; padding-left: 10px; }
+        table { width: 100%; font-size: 0.75rem; border-collapse: collapse; }
+        th, td { padding: 0.6rem; text-align: left; border-bottom: 1px solid #cbd5e1; }
+        .badge-risk { background: #fee2e2; color: #b91c1c; padding: 2px 8px; border-radius: 30px; font-weight: 600; }
+        .scrolling-news { background: #0c4a6e; color: white; padding: 8px 16px; border-radius: 40px; overflow: hidden; white-space: nowrap; }
+        .footer { background: #0c4a6e; color: #bae6fd; padding: 1rem 2rem; font-size: 0.7rem; display: flex; justify-content: space-between; }
+        @media (max-width: 900px) { .dashboard-container { grid-template-columns: 1fr; } .left-sidebar { display: none; } }
+    </style>
+</head>
+<body>
+<div class="app-wrapper">
+    <div class="navbar">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.2)"/><path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="white" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div><div class="logo-text">APFTS</div><div>AI Transparency · Integrity</div></div>
+        </div>
+        <ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="login.html">Login</a></li><li><a href="register.html">Register</a></li></ul>
+        <div class="user-info" id="userInfo" style="display:none;"><span id="userRoleDisplay"></span><button class="logout-btn" id="logoutBtn">Logout</button></div>
+    </div>
+    <div class="dashboard-container">
+        <aside class="left-sidebar">
+            <div class="stats-mini-card"><h4>🟢 TRANSPARENCY INDEX</h4><div class="stat-number">91.2</div><div class="progress-bar-bg"><div class="progress-fill" style="width:91%"></div></div><div>⬆️ +5.1% vs last quarter</div></div>
+            <div class="alert-feed"><h4>🚨 RECENT ANOMALIES</h4><div class="alert-item"><span class="badge-risk">HIGH</span> Dam: 42% funds, 12% physical</div><div class="alert-item"><span class="badge-risk">MED</span> Bridge #12 delay +8mo</div></div>
+            <div class="stats-mini-card"><h4>🛰️ SATELLITE VERIFICATION</h4><div>Active: 68 projects</div><div>Discrepancy: 14.2%</div></div>
+        </aside>
+        <main class="main-content">
+            <div class="card-grid">
+                <div class="info-card"><h3>🎯 Mission: Zero Leakage</h3><p>AI + satellite + fund tracking ensure every dollar builds the nation.</p></div>
+                <div class="info-card"><h3>📊 Real-time Dashboard</h3><div class="project-row"><span>Funds monitored:</span><strong>$16.7B</strong></div><div class="project-row"><span>Active projects:</span><strong>203</strong></div></div>
+                <div class="info-card"><h3>🤖 AI Workflow</h3><div>Proposal → Fund → Satellite → Risk → Alert</div><div class="progress-bar-bg"><div class="progress-fill" style="width:100%"></div></div></div>
+            </div>
+            <div class="info-card"><h3>📋 Priority Projects</h3><table><thead><tr><th>Project</th><th>Budget</th><th>Released</th><th>Progress</th><th>Risk</th></tr></thead><tbody><tr><td>Northern Highway</td><td>$340M</td><td>$210M</td><td>38%</td><td class="badge-risk">HIGH</td></tr><tr><td>Solar Irrigation</td><td>$78M</td><td>$52M</td><td>61%</td><td>LOW</td></tr></tbody></table></div>
+            <div class="scrolling-news">🔔 LIVE: AI detects 5 new contract deviations · Eastern water project flagged for review</div>
+        </main>
+    </div>
+    <div class="footer"><span>© 2025 APFTS — Transparent Governance</span><span>AI-powered · Verifiable · Accountable</span></div>
+</div>
+<script>
+    const role = sessionStorage.getItem('userRole');
+    const nav = document.getElementById('navLinks');
+    const userDiv = document.getElementById('userInfo');
+    const roleSpan = document.getElementById('userRoleDisplay');
+    if(role) {
+        document.querySelectorAll('a[href="login.html"], a[href="register.html"]').forEach(el => el.parentElement.style.display='none');
+        userDiv.style.display = 'flex';
+        roleSpan.innerText = role;
+        const roleLinks = {'Project Institution':['project_upload.html'],'Financing Institution':['fund_release.html'],'Regulatory Authority':['regulator_dashboard.html','ai_dashboard.html','satellite_monitoring.html']};
+        if(roleLinks[role]) roleLinks[role].forEach(href => { let li=document.createElement('li'); let a=document.createElement('a'); a.href=href; a.innerText=href.replace('.html','').toUpperCase(); li.appendChild(a); nav.appendChild(li); });
+        if(role === 'Financing Institution') { ['ai_dashboard.html','satellite_monitoring.html'].forEach(h=>{ let li=document.createElement('li'); let a=document.createElement('a'); a.href=h; a.innerText=h.replace('.html','').toUpperCase(); li.appendChild(a); nav.appendChild(li); }); }
+    }
+    document.getElementById('logoutBtn')?.addEventListener('click',()=>{sessionStorage.clear(); location.href='index.html';});
+</script>
+</body>
+</html>

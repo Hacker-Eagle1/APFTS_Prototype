@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Regulator Command</title><style>
+*{margin:0;padding:0;box-sizing:border-box;} body{ background:#0a2f44; color:#e2e8f0; font-family: monospace,system-ui; }
+.command-header{ background:#043750; padding:1rem 2rem; display: flex; justify-content: space-between; border-bottom:2px solid #38bdf8; }
+.command-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:1rem; padding:1.5rem; }
+.kpi-card{ background:#115e7a; border-radius:24px; padding:1rem; text-align:center; }
+.big-number{ font-size:2rem; font-weight:bold; }
+.anomaly-list{ background:#0c4a6e; padding:1rem; border-radius:24px; margin:0 1.5rem 1.5rem; }
+.denied{ text-align:center; padding:3rem; background:#115e7a; border-radius:32px; margin:2rem; }
+</style></head>
+<body><div class="command-header"><span>🏛️ NATIONAL OVERSIGHT</span><a href="index.html" style="color:#9ae6ff;">Exit</a></div><div id="regContent"></div>
+<script>
+    if(sessionStorage.getItem('userRole') !== 'Regulatory Authority') document.getElementById('regContent').innerHTML = `<div class="denied"><h2>⛔ Clearance Required</h2><p>Regulator-only command center.</p><a href="index.html">Back</a></div>`;
+    else document.getElementById('regContent').innerHTML = `<div class="command-grid"><div class="kpi-card"><div class="big-number">203</div>Projects</div><div class="kpi-card"><div class="big-number">$16.7B</div>Funds</div><div class="kpi-card"><div class="big-number">28</div>Anomalies</div><div class="kpi-card"><div class="big-number">91%</div>Transparency</div></div><div class="anomaly-list"><h3>⚠️ Flagged Projects</h3><table style="width:100%"><tr><th>Project</th><th>Risk</th><th>Action</th></tr><tr><td>Western Dam</td><td style="color:#f87171;">HIGH (94)</td><td>🔍 Suspend funds</td></tr><tr><td>Rail Phase 2</td><td>MED (67)</td><td>📋 AI audit</td></tr></table><div>Delivery lag avg: 6.2 months · Whistleblower reports ↑22%</div></div>`;
+</script></body></html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APFTS | Secure Login</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{ font-family: system-ui; background: linear-gradient(135deg, #e0f2fe, #bae6fd); min-height:100vh; display: flex; flex-direction: column; }
+        .navbar{ background: rgba(2,84,99,0.85); backdrop-filter: blur(12px); padding: 1rem 2rem; display: flex; justify-content: space-between; color:white; }
+        .login-wrapper{ display: flex; flex:1; align-items: center; justify-content: center; padding: 2rem; }
+        .glass-card{ background: rgba(255,255,255,0.85); backdrop-filter: blur(16px); border-radius: 48px; padding: 2.5rem; width: 100%; max-width: 500px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border:1px solid rgba(255,255,255,0.6); }
+        .form-group{ margin-bottom: 1.2rem; }
+        label{ font-size:0.7rem; text-transform: uppercase; font-weight:600; color:#0369a1; }
+        input, select{ width:100%; padding:0.8rem; border-radius: 32px; border:1px solid #bae6fd; background: white; }
+        .btn-login{ background: #0284c7; color:white; border:none; padding:0.8rem; border-radius:40px; font-weight:bold; width:100%; cursor:pointer; }
+        a{ color:#0369a1; }
+    </style>
+</head>
+<body>
+<div class="navbar"><span>🛰️ APFTS · Intelligence Gateway</span><a href="index.html" style="color:white;">← Back</a></div>
+<div class="login-wrapper">
+    <div class="glass-card">
+        <h2 style="margin-bottom:1.5rem;">🔐 Sign in</h2>
+        <div class="form-group"><label>Account type</label><select id="roleSelect"><option>Regulatory Authority</option><option>Financing Institution</option><option>Project Institution</option><option>Public/Citizen</option></select></div>
+        <div class="form-group"><label>Email</label><input type="text" placeholder="user@apfts.gov"></div>
+        <div class="form-group"><label>Password</label><input type="password"></div>
+        <button class="btn-login" id="loginBtn">Access Portal</button>
+        <div style="margin-top:1rem; text-align:center;"><a href="register.html">No account? Register</a></div>
+    </div>
+</div>
+<script>
+    document.getElementById('loginBtn').addEventListener('click',()=>{
+        sessionStorage.setItem('userRole', document.getElementById('roleSelect').value);
+        location.href='index.html';
+    });
+</script>
+</body>
+</html>

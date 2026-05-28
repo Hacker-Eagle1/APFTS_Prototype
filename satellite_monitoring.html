@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Satellite Intelligence</title><style>
+*{margin:0;padding:0;box-sizing:border-box;} body{ background: linear-gradient(145deg,#c3e6f7,#a0d2eb); color:#0c4a6e; font-family: system-ui; }
+.navi{ background:#0c4a6e; padding:1rem 2rem; display: flex; justify-content: space-between; color:white; }
+.sat-main{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; padding:2rem; }
+.img-panel{ background:rgba(255,255,255,0.8); backdrop-filter:blur(8px); border-radius:32px; padding:1rem; }
+.comparison{ display:flex; gap:1rem; margin-top:1rem; }
+.sat-img{ background:#cbd5e1; height:160px; border-radius:24px; display:flex; align-items:center; justify-content:center; flex:1; }
+.denied{ text-align:center; padding:3rem; background:white; border-radius:32px; margin:2rem; }
+</style></head>
+<body><div class="navi"><span>🛰️ SAR & Optical Analysis</span><a href="index.html" style="color:white;">Back</a></div><div id="satContent"></div>
+<script>
+    const role = sessionStorage.getItem('userRole');
+    const allowed = ['Regulatory Authority','Financing Institution'];
+    if(!role || !allowed.includes(role)) document.getElementById('satContent').innerHTML = `<div class="denied"><h2>🛡️ Restricted</h2><p>Satellite monitoring is for oversight only.</p><a href="index.html">Return</a></div>`;
+    else document.getElementById('satContent').innerHTML = `<div class="sat-main"><div class="img-panel"><h3>Before / After</h3><div class="comparison"><div class="sat-img">📸 Mar 2024</div><div class="sat-img">🛰️ Feb 2026</div></div><input type="range" min="0" max="100" value="42"><span>42% physical progress</span><div>AI: 42% vs expected 58% → Delay flagged</div></div><div class="img-panel"><h3>Geospatial</h3><div>Project: Northern Corridor<br>Completion: 37% (AI)<br>Terrain change: moderate deviation</div><button style="background:#0284c7; border:none; padding:0.5rem 1rem; border-radius:30px; margin-top:1rem;">Run Change Detection</button></div></div>`;
+</script></body></html>

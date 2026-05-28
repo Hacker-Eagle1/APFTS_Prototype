@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Fund Release</title><style>
+*{margin:0;padding:0;box-sizing:border-box;} body{ background: linear-gradient(135deg,#c2e9fb,#9ad4f0); font-family: system-ui; }
+.top{ background:#0c4a6e; padding:1rem 2rem; display: flex; justify-content: space-between; color:white; }
+.dashboard{ display:grid; grid-template-columns: 2fr 1.2fr; gap:1.5rem; padding:2rem; }
+.card{ background:rgba(255,255,255,0.9); border-radius:32px; padding:1.5rem; }
+.denied{ text-align:center; padding:3rem; background:white; border-radius:32px; margin:2rem; }
+button{ background:#0284c7; color:white; border:none; padding:0.5rem 1rem; border-radius:40px; cursor:pointer; }
+</style></head>
+<body><div class="top"><span>💰 Financing Management</span><a href="index.html" style="color:white;">Home</a></div><div id="main"></div>
+<script>
+    if(sessionStorage.getItem('userRole') !== 'Financing Institution') document.getElementById('main').innerHTML = `<div class="denied"><h2>⛔ Restricted</h2><p>Only Financing Institutions can release funds.</p><a href="index.html">Back</a></div>`;
+    else document.getElementById('main').innerHTML = `<div class="dashboard"><div class="card"><h3>Release Funds</h3><select style="width:100%; margin:1rem 0;"><option>Highway Project - $340M</option></select><div>Amount: <input type="text" value="12,500,000"></div><div><textarea placeholder="Payment details"></textarea></div><button onclick="alert('Disbursement recorded, AI monitoring activated')">Release Funds</button></div><div class="card"><h3>Progress vs Financing</h3><div>Expected: 44%</div><div class="progress-bar" style="background:#cbd5e1; height:8px;"><div style="width:44%; background:#0284c7; height:8px;"></div></div><div>Satellite: 37%</div><div class="progress-bar" style="background:#cbd5e1; height:8px;"><div style="width:37%; background:#e68a2e; height:8px;"></div></div></div></div>`;
+</script></body></html>
