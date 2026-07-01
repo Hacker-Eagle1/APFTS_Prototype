@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>APFTS | Register</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="../javascript/register.js"></script>    
+</head>
+<body>
+<div class="nav-bar"><span>🛰️ APFTS Registration Portal</span><a href="index.html" style="color:white;">Home</a></div>
+<div class="register-container">
+    <div class="card"><h2>🏛️ Institution Registration</h2>
+        <form id="instForm">
+            <div class="form-grid">
+                <div><label>Entity type</label><select id="instRole"><option>Financing Institution</option><option>Project Institution</option><option>Regulatory Body</option></select></div>
+                <div><label>Region</label><input placeholder="Eastern Province"></div>
+                <div class="full-width"><label>Legal name</label><input placeholder="National Development Bank"></div>
+                <div><label>Email</label><input type="email"></div><div><label>Tax ID</label><input placeholder="XX-1234567"></div>
+                <div class="full-width"><label>Password</label><input type="password" id="instPwd"></div>
+            </div>
+            <button type="button" class="btn-reg" onclick="registerInstitution()">Register Institution →</button>
+        </form>
+    </div>
+    <div class="card"><h2>👥 Citizen / Media Account</h2>
+        <form id="citizenForm">
+            <div><label>Full name</label><input placeholder="Benoit Arnaud IKUZO"></div>
+            <div class="form-grid"><div><label>Role</label><select id="citizenRole"><option>Citizen</option><option>Journalist</option><option>NGO Monitor</option></select></div>
+            <div><label>Region</label><input placeholder="Kigali"></div></div>
+            <div><label>Email</label><input type="email"></div>
+            <div><label>Password</label><input type="password" id="citizenPwd"></div>
+            <button type="button" class="btn-reg" onclick="registerCitizen()">Create Public Oversight Account →</button>
+        </form>
+        <div style="margin-top:1rem; background:#F1F5F9; padding:0.8rem; border-radius:12px; font-size:0.75rem;">🔒 Whistleblower protection active.</div>
+    </div>
+</div>
+<footer>APFTS – Secure Government Registration System</footer>
+<script>
+
+</script>
+</body>
+</html>

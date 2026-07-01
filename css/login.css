@@ -1,0 +1,103 @@
+ * { 
+margin: 0;
+padding: 0; 
+box-sizing: border-box; 
+}
+        body { 
+              font-family: 'Inter', system-ui, sans-serif; 
+              background: #0A1C2F; 
+              color: #E2E8F0; 
+              height: 100vh; 
+              display: flex; 
+              flex-direction: column; 
+       }
+        
+.login-wrapper { 
+       display: flex; 
+       flex: 1; 
+}
+        
+.left-panel { 
+       flex: 1.2; 
+       background: linear-gradient(135deg, #0A2B4E 0%, #062135 100%); 
+       padding: 3rem;
+       display: flex; 
+       flex-direction: column; 
+       justify-content: center; 
+       border-right: 1px solid #1E4A6E; 
+}
+        
+.left-panel h1 { 
+       font-size: 2.2rem; 
+       margin-bottom: 1rem; 
+}
+        
+.right-panel { 
+       flex: 1; 
+       background: #F8FAFE; 
+       display: flex; 
+       align-items: center; 
+       justify-content: center; 
+       padding: 2rem; 
+}
+        
+.login-card { 
+       background: white; 
+       border-radius: 28px; 
+       padding: 2rem; 
+       width: 100%; 
+       max-width: 440px; 
+       box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2); 
+       color: #0A1C2F; 
+}
+        
+.form-group { 
+       margin-bottom: 1.25rem; 
+}
+        
+label { 
+       font-size: 0.75rem; 
+       font-weight: 600; 
+       text-transform: uppercase; 
+       color: #4A6F8F; 
+}
+        
+input, select { 
+       width: 100%; 
+       padding: 0.8rem; 
+       border-radius: 12px; 
+       border: 1px solid #CBD5E1; 
+       margin-top: 4px; 
+}
+        
+.btn-login { 
+       background: #0A2B4E; 
+       color: white; 
+       border: none; 
+       padding: 0.85rem; 
+       border-radius: 40px; 
+       font-weight: bold; 
+       width: 100%; 
+       cursor: pointer; 
+}
+        
+.flex-between { 
+       display: flex; 
+       justify-content: space-between; 
+       font-size: 0.75rem; 
+       margin: 1rem 0; 
+}
+       
+a { 
+       color: #1E6F9F; 
+       text-decoration: none; 
+}
+        
+.navbar { 
+       background: #0A2B4E; 
+       padding: 0.8rem 2rem; 
+       display: flex; 
+       justify-content: space-between; 
+       align-items: center; 
+}
+    

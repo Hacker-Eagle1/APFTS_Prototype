@@ -1,0 +1,65 @@
+*{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+} 
+body{ 
+        background:#0A1A2A; 
+        color:#EFF3F8; 
+        font-family: monospace,system-ui; 
+}
+        
+.command-header{ 
+        background:#03101E; 
+        padding:1rem 2rem; 
+        display: flex; 
+        justify-content: space-between; 
+        border-bottom: 2px solid #1E6F9F; 
+}
+        
+.command-grid{ 
+        display:grid; 
+        grid-template-columns: repeat(4,1fr); 
+        gap:1rem; 
+        padding:1.5rem; 
+}
+        
+.kpi-card{ 
+        background:#11212E; 
+        border-radius:16px; 
+        padding:1rem; 
+        text-align:center; 
+}
+        
+.big-number{ 
+        font-size:2rem; 
+        font-weight:bold; 
+}
+        
+.anomaly-list{ 
+        background:#0B1B28; 
+        padding:1rem; 
+        border-radius:16px; 
+        margin:0 1.5rem 1.5rem; 
+}
+        
+table{ 
+        width:100%; 
+        border-collapse:collapse; 
+        color:#CCC; 
+}
+        
+th,td{ 
+        padding:0.6rem; 
+        text-align:left; 
+        border-bottom:1px solid #1E3A4D; 
+}
+        
+.denied { 
+        text-align: center; 
+        padding: 3rem; 
+        background: #11212E; 
+        border-radius: 20px; 
+        margin: 2rem; 
+}
+    

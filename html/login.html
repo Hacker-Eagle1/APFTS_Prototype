@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APFTS | Secure Login</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <script src="../javascript/login.js"></script>     
+</head>
+<body>
+<div class="navbar">
+    <div class="logo-area"><span>🛰️</span> APFTS · Intelligence Gateway</div>
+    <div><a href="index.html" style="color:#a0c4e2;">← Back</a></div>
+</div>
+<div class="login-wrapper">
+    <div class="left-panel">
+        <h1>🔐 Authorized Access Only</h1>
+        <p>AI-Powered Public Funds Transparency System — role-based dashboard access.</p>
+        <div class="security-badge" style="background:rgba(30,111,159,0.2); padding:0.5rem 1rem; border-radius:40px; display:inline-block;">✔️ FIPS 140-3 Encrypted</div>
+    </div>
+    <div class="right-panel">
+        <div class="login-card">
+            <h3 style="margin-bottom: 1.5rem;">Sign in to APFTS</h3>
+            <div class="form-group">
+                <label>Account type</label>
+                <select id="roleSelect">
+                    <option>Regulatory Authority</option>
+                    <option>Financing Institution</option>
+                    <option>Project Institution</option>
+                    <option>Public/Citizen</option>
+                </select>
+            </div>
+            <div class="form-group"><label>Email / Username</label><input type="text" placeholder="user@apfts.gov"></div>
+            <div class="form-group"><label>Password</label><input type="password" placeholder="········"></div>
+            <div class="flex-between"><label><input type="checkbox"> Remember device</label><a href="#">Forgot password?</a></div>
+            <button class="btn-login" id="loginBtn">Access Intelligence Portal</button>
+            <div class="flex-between" style="margin-top:1rem;"><span>No account?</span><a href="register.html">Register</a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

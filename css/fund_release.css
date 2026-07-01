@@ -1,0 +1,55 @@
+ *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+} 
+body{ 
+background:#EFF3F8; 
+font-family: system-ui; 
+}
+        
+.top{ 
+background:#0A2B4E;
+color:white; 
+padding:1rem 2rem; 
+display: flex; 
+justify-content: space-between; 
+}
+        
+.dashboard{ 
+display: grid; 
+grid-template-columns: 2fr 1.2fr; 
+gap:1.5rem; 
+padding:2rem; 
+max-width:1400px; 
+margin:0 auto; 
+}
+        
+.card{ 
+background:white; 
+border-radius:20px; 
+padding:1.5rem; 
+border:1px solid #E2E8F0; 
+}
+ .release-btn{ 
+background:#1E6F9F; 
+color:white; 
+border:none; 
+border-radius:30px; 
+padding:0.5rem 1rem; 
+cursor:pointer; 
+}
+.progress{ 
+background:#E2E8F0;
+height:8px; 
+border-radius:10px; 
+margin:8px 0;
+}
+       
+.denied { 
+text-align: center; 
+padding: 3rem; 
+background: white; 
+border-radius: 20px; 
+margin: 2rem; 
+}

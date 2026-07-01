@@ -1,0 +1,48 @@
+*{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+} 
+body{ 
+        background:#F9FBFD; 
+        font-family: system-ui; 
+}
+        
+.header{ 
+        background:#0A2B4E; 
+        color:white; 
+        padding:1rem 2rem; 
+        display: flex; 
+        justify-content: space-between; 
+}
+        
+.portal-grid{ 
+        display: grid; 
+        grid-template-columns: 2fr 1fr; 
+        gap: 1.5rem; padding:2rem; 
+        max-width:1300px; 
+        margin:0 auto; 
+}
+        
+.project-card{ 
+        background:white; 
+        border-radius:20px; 
+        padding:1rem; 
+        margin-bottom:1rem; 
+        border:1px solid #E2E8F0; 
+}
+        
+.search-bar{ 
+        width:100%; 
+        padding:0.7rem; 
+        margin-bottom:1rem; 
+        border-radius:40px; 
+        border:1px solid #CBD5E1;
+}
+        
+footer{ 
+        background:#E2E8F0; 
+        padding:1rem; 
+        text-align:center; 
+}
+    
